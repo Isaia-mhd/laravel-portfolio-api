@@ -10,6 +10,7 @@ class EmailController extends Controller
     {
         // Validate incoming request
         $validated = $request->validate([
+            'name' => 'required|min:3',
             'email' => 'required|email',
             'subject' => 'required|string',
             'message' => 'required|string|min:10', // Ensure the message is at least 10 characters
@@ -26,7 +27,7 @@ class EmailController extends Controller
             "Content-Type" => "application/json"
         ])->post('https://api.brevo.com/v3/smtp/email', [
             "sender" => [
-                "name" => "IsaiaMohamed",
+                "name" => $validated["name"],
                 "email" => "mohamedesaie21@gmail.com",
             ],
             "to" => [
