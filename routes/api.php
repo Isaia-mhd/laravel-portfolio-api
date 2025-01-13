@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::post('/send-email', [EmailController::class, 'sendEmail']);
+
