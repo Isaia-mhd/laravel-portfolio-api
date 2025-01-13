@@ -10,7 +10,7 @@ class EmailController extends Controller
     {
         // Validate incoming request
         $validated = $request->validate([
-            'name' => 'required|min:3',
+            'name' => 'required|min:2',
             'email' => 'required|email',
             'subject' => 'required|string',
             'message' => 'required|string|min:10', // Ensure the message is at least 10 characters
@@ -35,6 +35,7 @@ class EmailController extends Controller
             ],
             "subject" => $validated["subject"],
             "htmlContent" => view("emails.contact", [
+                "name" => $validated["name"],
                 "email" => $validated["email"],
                 "messageContent" => $validated["message"]
             ])->render(),

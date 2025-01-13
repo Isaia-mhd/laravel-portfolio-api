@@ -2,7 +2,7 @@
 
 <html>
     <body>
-        <h1>Message from {{ $email }}</h1>
+        <h3>Message from {{$name}} <span style="font-size:14px;">{{ $email }}</span></h3>
         <p>{{ $messageContent }}</p>
     </body>
 </html>
